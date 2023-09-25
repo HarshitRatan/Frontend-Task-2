@@ -2,7 +2,7 @@ import React from "react";
 
 const LoginIcon = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "0.5rem" }}>
       <svg
         width="32"
         height="32"
