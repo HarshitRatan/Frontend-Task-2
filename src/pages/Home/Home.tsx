@@ -1,7 +1,7 @@
 import React from "react";
 import CandidateCard from "../../components/cards/CandidateCard";
 import Header from "../../components/header/Header";
-import { Button, Checkbox, Col, Divider, Input, Row } from "antd";
+import { Button, Checkbox, Col, Divider, Input, Row, Space } from "antd";
 import Title from "antd/es/typography/Title";
 import { ExclamationCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import FilterCard from "../../components/filterCard/FilterCard";
@@ -50,6 +50,48 @@ const Home = () => {
               backgroundColor: "#FFF",
             }}
           >
+            <Space
+              style={{
+                display: "flex",
+                padding: "18px 16px",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignSelf: "stretch",
+                width: "100%",
+              }}
+            >
+              <Title
+                style={{
+                  color: " #0B0B0B",
+                  fontFamily: "Poppins",
+                  fontSize: "1.1rem",
+                  fontStyle: "normal",
+                  fontWeight: "800",
+                  lineHeight: "22px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Filters
+              </Title>
+              <Title
+                style={{
+                  color: " #0B0B0B",
+                  fontFamily: "Poppins",
+                  fontSize: "1.1rem",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  lineHeight: "22px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                0 Selected
+              </Title>
+            </Space>
+            <Divider style={{ margin:0}} />
             {filterLabels.length > 0 &&
               filterLabels.map((value, index) => (
                 <FilterCard key={index} value={value} />
