@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Divider, Row } from "antd";
 import Title from "antd/es/typography/Title";
-// import DropDown from "../../components/dropdown/DropDown";
+import DropDown from "../../components/dropdown/DropDown";
 import UserVoice from "../../components/sideBarIcons/UserVoice";
 import UserCheck from "../../components/sideBarIcons/UserCheck";
 import UserClose from "../../components/sideBarIcons/UserClose";
@@ -9,6 +9,7 @@ import UserTag from "../../components/sideBarIcons/UserTag";
 import { DownOutlined, MailOutlined } from "@ant-design/icons";
 
 const Header = () => {
+  const [dropDownHoverIn, setDropDownHoverIn] = React.useState(false);
   return (
     <Row style={{ marginTop: "2.5rem" }}>
       <Col span={6}>
@@ -44,8 +45,11 @@ const Header = () => {
           justifyContent: "center",
           alignItems: "center",
         }}
+        onMouseLeave={() => {
+          setDropDownHoverIn(false);
+        }}
       >
-        {/* <DropDown /> */}
+        <DropDown hoverIn={dropDownHoverIn} setHoverIn={setDropDownHoverIn} />
       </Col>
       <Col
         span={12}
