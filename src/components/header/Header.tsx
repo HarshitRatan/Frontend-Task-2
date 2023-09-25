@@ -16,7 +16,7 @@ const Header = () => {
           style={{
             color: "#1D4ED8",
             fontFamily: "Poppins",
-            fontSize: "20px",
+            fontSize: "1.5rem",
             fontStyle: "normal",
             fontWeight: "600",
             lineHeight: "normal",
@@ -28,7 +28,7 @@ const Header = () => {
           style={{
             color: "#0B0B0B",
             fontFamily: "Poppins",
-            fontSize: "12px",
+            fontSize: "0.9rem",
             fontStyle: "normal",
             fontWeight: "300",
             lineHeight: "normal",
@@ -62,6 +62,7 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "none",
           }}
           type="default"
           icon={<UserTag />}
@@ -73,6 +74,7 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "none",
           }}
           type="default"
           icon={<UserClose />}
@@ -84,6 +86,7 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "none",
           }}
           type="default"
           icon={<UserCheck />}
@@ -95,6 +98,7 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "none",
           }}
           type="default"
           icon={<UserVoice />}
@@ -103,6 +107,7 @@ const Header = () => {
           style={{
             height: "2.5rem",
             width: "2.5rem",
+            border: "none",
           }}
           type="default"
           icon={<MailOutlined />}

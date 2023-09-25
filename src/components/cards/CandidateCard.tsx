@@ -161,8 +161,6 @@ const CandidateCard = ({ additionalInformation }: any) => {
                 <path
                   d="M1.75 7C1.75 9.8995 4.1005 12.25 7 12.25C9.8995 12.25 12.25 9.8995 12.25 7C12.25 4.1005 9.8995 1.75 7 1.75C4.1005 1.75 1.75 4.1005 1.75 7Z"
                   stroke="#305DC6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 />
               </svg>
               4

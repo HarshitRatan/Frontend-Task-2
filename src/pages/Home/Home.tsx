@@ -1,16 +1,61 @@
 import React from "react";
 import CandidateCard from "../../components/cards/CandidateCard";
 import Header from "../../components/header/Header";
-import { Button, Checkbox, Col, Divider, Row } from "antd";
+import { Button, Checkbox, Col, Divider, Input, Row } from "antd";
 import Title from "antd/es/typography/Title";
+import { ExclamationCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import FilterCard from "../../components/filterCard/FilterCard";
 
 const Home = () => {
   const candidatesData = [1, 2, 3];
+  const filterLabels = [
+    "Personal Information",
+    "Education",
+    "Work Experience",
+    "Activity Filter",
+    "Advanced Filter",
+  ];
+  const [search, setSearch] = React.useState("");
   return (
     <div>
       <Header />
       <Row style={{ marginTop: "2.5rem" }}>
-        <Col span={8}>COl - 6</Col>
+        <Col span={8}>
+          <Row style={{ width: "90%", height: "3rem" }}>
+            <Input
+              size="large"
+              placeholder="Serach by name, edu, exp or #tag"
+              prefix={<SearchOutlined style={{ color: "#B0BABF" }} />}
+              suffix={
+                <ExclamationCircleOutlined
+                  style={{ marginLeft: "2rem", color: "#B0BABF" }}
+                />
+              }
+              style={{ border: "none" }}
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                console.log("search ::: ", e.target.value);
+              }}
+            />
+          </Row>
+          <Row
+            style={{
+              width: "90%",
+              marginTop: "1.5rem",
+              borderRadius: "0.5rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#FFF",
+            }}
+          >
+            {filterLabels.length > 0 &&
+              filterLabels.map((value, index) => (
+                <FilterCard key={index} value={value} />
+              ))}
+          </Row>
+        </Col>
         <Col span={16} style={{ backgroundColor: "white" }}>
           <Row>
             <Col
@@ -75,7 +120,7 @@ const Home = () => {
                   fontFamily: "Poppins",
                   fontSize: "1rem",
                   fontStyle: "normal",
-                  fontWeight: "600",
+                  fontWeight: "400",
                   lineHeight: "1.4rem",
                 }}
               >
@@ -100,7 +145,7 @@ const Home = () => {
                   fontFamily: "Poppins",
                   fontSize: "1rem",
                   fontStyle: "normal",
-                  fontWeight: "600",
+                  fontWeight: "400",
                   lineHeight: "1.4rem",
                 }}
               >
