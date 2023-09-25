@@ -4,9 +4,7 @@ import { Typography } from "antd";
 import Meta from "antd/es/card/Meta";
 const { Title } = Typography;
 
-const CandidateCard = ({ additionalInformation }: any) => {
-  const hastagArray = ["#top_candidate", "#top_candidate"];
-  const chipsArray = ["New York", "Marketing", "London"];
+const CandidateCard = (props: any) => {
   return (
     <>
       <Card
@@ -58,7 +56,7 @@ const CandidateCard = ({ additionalInformation }: any) => {
                     lineHeight: "normal",
                   }}
                 >
-                  Aaliyah Sanderson
+                  {props.name}
                 </Title>
                 <Title
                   style={{
@@ -71,7 +69,7 @@ const CandidateCard = ({ additionalInformation }: any) => {
                     lineHeight: "normal",
                   }}
                 >
-                  Riyadh, Saudi Arabia
+                  {props.address}
                 </Title>
                 <Title
                   style={{
@@ -84,10 +82,10 @@ const CandidateCard = ({ additionalInformation }: any) => {
                     lineHeight: "normal",
                   }}
                 >
-                  Bachelor - Cambridge University (2023 - 2023)
+                  {props.edu}
                 </Title>
-                {hastagArray.length > 0 &&
-                  hastagArray.map((hastag, index) => (
+                {props.hastag.length > 0 &&
+                  props.hastag.map((hastag: any, index: any) => (
                     <Title
                       key={index}
                       style={{
@@ -106,8 +104,8 @@ const CandidateCard = ({ additionalInformation }: any) => {
                     </Title>
                   ))}
                 <br />
-                {chipsArray.length > 0 &&
-                  chipsArray.map((value, index) => (
+                {props.tags.length > 0 &&
+                  props.tags.map((value: any, index: any) => (
                     <Title
                       key={index}
                       style={{
@@ -133,7 +131,7 @@ const CandidateCard = ({ additionalInformation }: any) => {
             }
           />
         </Checkbox>
-        {additionalInformation === "true" && (
+        {props.additionalInformation === true && (
           <>
             <Title
               style={{

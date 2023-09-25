@@ -3,11 +3,18 @@ import CandidateCard from "../../components/cards/CandidateCard";
 import Header from "../../components/header/Header";
 import { Button, Checkbox, Col, Divider, Input, Row, Space } from "antd";
 import Title from "antd/es/typography/Title";
-import { ExclamationCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+  ExclamationCircleOutlined,
+  LoadingOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import FilterCard from "../../components/filterCard/FilterCard";
+import CandidateData from "../../data/CandidatesData.json";
 
 const Home = () => {
-  const candidatesData = [1, 2, 3];
+  const [data, setData] = React.useState(CandidateData);
+  const [isloading, setIsLoading] = React.useState(false);
+
   const filterLabels = [
     "Personal Information",
     "Education",
@@ -16,6 +23,26 @@ const Home = () => {
     "Advanced Filter",
   ];
   const [search, setSearch] = React.useState("");
+
+  const handelSearch = (e: any) => {
+    setIsLoading(true);
+    setSearch(e.target.value);
+    if (e.target.value === "") {
+      setData(CandidateData);
+    } else {
+      const tempData = CandidateData.filter((value) => {
+        return value.name
+          .toLowerCase()
+          .toString()
+          .includes(e.target.value.toLowerCase().toString());
+      });
+      setData(tempData);
+    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+  };
+
   return (
     <div>
       <Header />
@@ -24,7 +51,7 @@ const Home = () => {
           <Row style={{ width: "90%", height: "3rem" }}>
             <Input
               size="large"
-              placeholder="Serach by name, edu, exp or #tag"
+              placeholder="Serach by name, education or address"
               prefix={<SearchOutlined style={{ color: "#B0BABF" }} />}
               suffix={
                 <ExclamationCircleOutlined
@@ -33,10 +60,7 @@ const Home = () => {
               }
               style={{ border: "none" }}
               value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                console.log("search ::: ", e.target.value);
-              }}
+              onChange={(e) => handelSearch(e)}
             />
           </Row>
           <Row
@@ -91,7 +115,7 @@ const Home = () => {
                 0 Selected
               </Title>
             </Space>
-            <Divider style={{ margin:0}} />
+            <Divider style={{ margin: 0 }} />
             {filterLabels.length > 0 &&
               filterLabels.map((value, index) => (
                 <FilterCard key={index} value={value} />
@@ -209,11 +233,35 @@ const Home = () => {
           </Row>
           <Divider style={{ marginTop: 0, marginBottom: 4 }} />
           <Divider style={{ marginTop: 0 }} />
-          {candidatesData.length > 0 &&
-            candidatesData.map((value, index) => (
-              <CandidateCard key={index} additionalInformation="false" />
+          {!isloading &&
+            data.length > 0 &&
+            data.map((value, index) => (
+              <CandidateCard key={index} {...value} />
             ))}
-          <CandidateCard additionalInformation="true" />
+
+          {!isloading && data.length === 0 && (
+            <Space
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "rgb(92 90 90)",
+              }}
+            >
+              <h3>No Record Found!!</h3>
+            </Space>
+          )}
+          {isloading && (
+            <Space
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <LoadingOutlined style={{ fontSize: "3rem", color: "#a9a9a9" }} />
+            </Space>
+          )}
         </Col>
       </Row>
     </div>

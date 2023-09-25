@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Aaliyah Sanderson",
+    "address": "Riyadh, Saudi Arabia",
+    "edu": "Bachelor - Cambridge University (2019 - 2023)",
+    "hastag": ["#top_candidate", "#top_candidate"],
+    "tags": ["New York", "Marketing"],
+    "additionalInformation": false
+  },
+  {
+    "name": "Michael K. Banks",
+    "address": "Kolby Valleys, USA",
+    "edu": "Master - Lucknow University (2021 - 2023)",
+    "hastag": ["#average_candidate"],
+    "tags": ["New York", "Developer", "USA"],
+    "additionalInformation": false
+  },
+  {
+    "name": "Billy L. Clark",
+    "address": "Margarette Dale, USA",
+    "edu": "Bachelor - USA University (2015 - 2019)",
+    "hastag": ["#best_candidate", "#top_candidate"],
+    "tags": ["Designer", "UK"],
+    "additionalInformation": false
+  },
+  {
+    "name": "Louis D. Kirkland",
+    "address": " Elwyn Dam, UK",
+    "edu": "Diploma - UK University (2023 - 2023)",
+    "hastag": ["#top_candidate", "#top_candidate"],
+    "tags": ["New York", "Marketing", "London"],
+    "additionalInformation": true
+  }
+]
