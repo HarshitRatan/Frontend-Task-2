@@ -63,8 +63,8 @@ const DropDown = ({ hoverIn, setHoverIn }: any) => {
           setHoverIn(true);
         }}
         bordered={false}
-        virtual={false}
         size="large"
+        listHeight={800}
       >
         {dropDownData.map((value, index) => (
           <Option
