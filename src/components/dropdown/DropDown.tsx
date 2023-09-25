@@ -1,5 +1,5 @@
 import React from "react";
-import { Select } from "antd";
+import { Col, Row, Select } from "antd";
 const { Option } = Select;
 const DropDown = ({ hoverIn, setHoverIn }: any) => {
   const dropDownData = [
@@ -81,7 +81,22 @@ const DropDown = ({ hoverIn, setHoverIn }: any) => {
               marginTop: "0.7rem",
             }}
           >
-            {value.label}
+            <Row>
+              <Col span={20}>{value.label}</Col>
+              <Col span={4}>
+                <span
+                  style={{
+                    borderRadius: "25%",
+                    fontSize: "0.7rem",
+                    fontWeight: "600",
+                    background: "rgb(68 68 68 / 6%)",
+                    padding: "4px",
+                  }}
+                >
+                  {value.value}
+                </span>
+              </Col>
+            </Row>
           </Option>
         ))}
       </Select>
